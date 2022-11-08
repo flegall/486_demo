@@ -1,5 +1,5 @@
 [package]
-name = "rust_dos"
+name = "_486_demo"
 version = "0.1.0"
 authors = ["Hayato Ohhashi <o8@vmm.dev>"]
 edition = "2018"

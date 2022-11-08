@@ -3,7 +3,7 @@
 
 
 mod dos_tests;
-use rust_dos::*;
+use _486_demo::*;
 use crate::dos_tests::file::file_read_test;
 
 entry!(main);

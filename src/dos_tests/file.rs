@@ -1,4 +1,4 @@
-use rust_dos::*;
+use _486_demo::*;
 
 #[allow(dead_code)]
 pub(crate) fn file_read_test() {

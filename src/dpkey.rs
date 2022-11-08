@@ -8,7 +8,7 @@
 //  Enjoy!
 //
 // Dependency:
-//  rust_dos::dos::kbc.rs
+//  _486_demo::dos::kbc.rs
 //
 // Note:
 //  As far as I've tested, qemu doesn't support this operation, so play with bochs.
