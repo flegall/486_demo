@@ -1,7 +1,7 @@
-use _486_demo::*;
+use crate::*;
 
 #[allow(dead_code)]
-pub(crate) fn file_read_test() {
+pub fn file_read_test() {
     let test_file = dos::file::File::open("test.txt").unwrap();
     let mut buffer = [0; 20];
     let bytes_read = test_file.read(&mut buffer).unwrap();

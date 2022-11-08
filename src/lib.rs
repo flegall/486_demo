@@ -3,6 +3,7 @@
 
 #[macro_use]
 pub mod dos;
+pub mod dos_tests;
 pub mod dpkey;
 extern crate rlibc;
 extern crate alloc;
