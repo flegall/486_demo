@@ -1,5 +1,4 @@
 /target
 **/*.rs.bk
 /Cargo.lock
-rust_dos.com
-test_dos.com
+/bins/*.com

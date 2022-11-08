@@ -1,0 +1,24 @@
+[tasks.clean]
+command = "cargo"
+args = ["clean", "-v"]
+
+[tasks.build]
+command = "cargo"
+args = ["build", "--release", "--examples", "-v"]
+
+[tasks.link]
+dependencies = ["build"]
+script = '''
+    rm -vf bins/*.com
+    cargo objcopy --release -v -- -O binary --binary-architecture=i386:x86 bins/test3d.com
+    for test_file in `ls examples/*.rs`; do 
+        file_name="${test_file%.*}";
+        example_name=`basename $file_name`;
+        cargo objcopy --release --example $example_name -v -- -O binary --binary-architecture=i386:x86 bins/$example_name.com
+    done
+'''
+
+[tasks.run]
+dependencies = ["link"]
+command = "dosbox"
+args = ["-c", "MOUNT C ./bins", "-c" ,"c:", "-c", "${@}"]
