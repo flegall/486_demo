@@ -40,9 +40,9 @@ pub enum ErrorCode {
     InvalidDiskChange = 34,
     FcbUnavailable = 35,
     InvalidSharingBuffer = 36,
-    CodePageMismatch = 37, // Reserved under MS-DOS 4.0
+    CodePageMismatch = 37,            // Reserved under MS-DOS 4.0
     CannotCompleteFileOperation = 38, // Reserved under MS-DOS 4.0
-    InsufficientDiskSpace = 39, // Reserved under MS-DOS 4.0
+    InsufficientDiskSpace = 39,       // Reserved under MS-DOS 4.0
     // 40 to 49 are reserved
     NetworkRequestNotSupported = 50,
     RemoteComputerNotListening = 51,
@@ -68,8 +68,8 @@ pub enum ErrorCode {
     NetworkRequestNotAccepted = 71,
     NetworkPrintAndDiskRedirectionPaused = 72,
     InvalidNetworkVersion = 73, // Reserved on DOS, used only on LANtastic
-    AccountExpired = 74, // Reserved on DOS, used only on LANtastic
-    PasswordExpired = 75, // Reserved on DOS, used only on LANtastic
+    AccountExpired = 74,        // Reserved on DOS, used only on LANtastic
+    PasswordExpired = 75,       // Reserved on DOS, used only on LANtastic
     LoginAttemptedInvalidAtThisTime = 76, // Reserved on DOS, used only on LANtastic
     DiskLimitExceedOnNetworkNode = 77, // Reserved on DOS, used only on LANtastic
     NotLoggedInToNetworkMode = 78, // Reserved on DOS, used only on LANtastic
@@ -78,14 +78,14 @@ pub enum ErrorCode {
     // 81 is reserved
     CannotMakeDirectory = 82,
     FailOnInterrupt24h = 83,
-    TooManyRedirections = 84, // Reserved under MS-DOS 3.3
-    DuplicateRedirection = 85, // Reserved under MS-DOS 3.3
-    InvalidPassword = 86, // Reserved under MS-DOS 3.3
-    InvalidParameter = 87, // Reserved under MS-DOS 3.3
-    NetworkDeviceFault = 88, // Reserved under MS-DOS 3.3
-    FunctionNotSupportedByNetwork = 89, // Reserved under MS-DOS 4.0
+    TooManyRedirections = 84,                 // Reserved under MS-DOS 3.3
+    DuplicateRedirection = 85,                // Reserved under MS-DOS 3.3
+    InvalidPassword = 86,                     // Reserved under MS-DOS 3.3
+    InvalidParameter = 87,                    // Reserved under MS-DOS 3.3
+    NetworkDeviceFault = 88,                  // Reserved under MS-DOS 3.3
+    FunctionNotSupportedByNetwork = 89,       // Reserved under MS-DOS 4.0
     RequiredSystemComponentNotInstalled = 90, // Reserved under MS-DOS 4.0
-    UnknownError = 255, // This error doesn't exist in MS-DOS
+    UnknownError = 255,                       // This error doesn't exist in MS-DOS
 }
 
 impl ErrorCode {
@@ -241,7 +241,9 @@ impl ErrorCode {
             ErrorCode::NetworkBIOSSessionLimitExceeded => "Network BIOS session limit exceeded",
             ErrorCode::TemporarilyPaused => "Temporarily paused",
             ErrorCode::NetworkRequestNotAccepted => "Network request not accepted",
-            ErrorCode::NetworkPrintAndDiskRedirectionPaused => "Network print and disk redirection paused",
+            ErrorCode::NetworkPrintAndDiskRedirectionPaused => {
+                "Network print and disk redirection paused"
+            }
             ErrorCode::InvalidNetworkVersion => "Invalid network version",
             ErrorCode::AccountExpired => "Account expired",
             ErrorCode::PasswordExpired => "Password expired",
@@ -257,7 +259,9 @@ impl ErrorCode {
             ErrorCode::InvalidParameter => "Invalid parameter",
             ErrorCode::NetworkDeviceFault => "Network device fault",
             ErrorCode::FunctionNotSupportedByNetwork => "Function not supported by network",
-            ErrorCode::RequiredSystemComponentNotInstalled => "Required system component not installed",
+            ErrorCode::RequiredSystemComponentNotInstalled => {
+                "Required system component not installed"
+            }
             ErrorCode::UnknownError => "Unknown error",
         }
     }

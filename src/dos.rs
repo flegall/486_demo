@@ -1,10 +1,10 @@
 #[macro_use]
 pub mod console;
 pub mod allocator;
+pub mod error_code;
+pub mod file;
 pub mod io;
 pub mod kbc;
-pub mod file;
-pub mod error_code;
 pub mod panic;
 use core::arch::asm;
 

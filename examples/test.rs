@@ -1,9 +1,8 @@
 #![no_std]
 #![no_main]
 
-
-use _486_demo::*;
 use crate::dos_tests::file::file_read_test;
+use _486_demo::*;
 
 entry!(main);
 

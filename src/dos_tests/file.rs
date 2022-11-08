@@ -9,7 +9,7 @@ pub fn file_read_test() {
     println!("{}", core::str::from_utf8(&buffer).unwrap());
     match test_file.close() {
         Ok(_) => println!("File closed"),
-        Err(_) => println!("Error closing file")
+        Err(_) => println!("Error closing file"),
     }
 
     println!("Hello, World!");

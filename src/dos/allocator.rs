@@ -22,12 +22,18 @@ pub struct DosAllocator {
 unsafe impl GlobalAlloc for DosAllocator {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
         let mut current_block_ptr = self.first_block_ptr;
-        while (*current_block_ptr).used || ((*current_block_ptr).size != 0 && (*current_block_ptr).size < layout.size() + size_of::<AllocatorBlock>()) {
+        while (*current_block_ptr).used
+            || ((*current_block_ptr).size != 0
+                && (*current_block_ptr).size < layout.size() + size_of::<AllocatorBlock>())
+        {
             current_block_ptr = (*current_block_ptr).next.unwrap();
         }
         (*current_block_ptr).used = true;
         (*current_block_ptr).size = layout.size();
-        let new_block_ptr = ((*current_block_ptr).size as u32 + current_block_ptr as u32 + size_of::<AllocatorBlock>() as u32) as *mut AllocatorBlock;
+        let new_block_ptr = ((*current_block_ptr).size as u32
+            + current_block_ptr as u32
+            + size_of::<AllocatorBlock>() as u32)
+            as *mut AllocatorBlock;
         (*new_block_ptr).next = None;
         (*new_block_ptr).used = false;
         (*new_block_ptr).size = 0;
@@ -37,12 +43,14 @@ unsafe impl GlobalAlloc for DosAllocator {
     }
 
     unsafe fn dealloc(&self, ptr: *mut u8, _layout: Layout) {
-        let current_block_ptr = (ptr as u32 - size_of::<AllocatorBlock>() as u32) as *mut AllocatorBlock;
+        let current_block_ptr =
+            (ptr as u32 - size_of::<AllocatorBlock>() as u32) as *mut AllocatorBlock;
         (*current_block_ptr).used = false;
     }
 
     unsafe fn realloc(&self, ptr: *mut u8, layout: Layout, new_size: usize) -> *mut u8 {
-        let current_block_ptr = (ptr as u32 - size_of::<AllocatorBlock>() as u32) as *mut AllocatorBlock;
+        let current_block_ptr =
+            (ptr as u32 - size_of::<AllocatorBlock>() as u32) as *mut AllocatorBlock;
         if (*current_block_ptr).size >= new_size {
             return ptr;
         }
