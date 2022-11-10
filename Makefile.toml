@@ -10,7 +10,7 @@ args = ["build", "--release", "--examples", "-v"]
 dependencies = ["build"]
 script = '''
     rm -vf bins/*.com
-    cargo objcopy --release -v -- -O binary --binary-architecture=i386:x86 bins/test3d.com
+    cargo objcopy --release -v -- -O binary --binary-architecture=i386:x86 bins/main.com
     for test_file in `ls examples/*.rs`; do 
         file_name="${test_file%.*}";
         example_name=`basename $file_name`;

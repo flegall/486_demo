@@ -6,6 +6,7 @@ pub mod file;
 pub mod io;
 pub mod kbc;
 pub mod panic;
+pub mod vga;
 use core::arch::asm;
 
 pub fn exit(rt: u8) -> ! {
